@@ -41,3 +41,22 @@ uvicorn app.main:app --reload
   - `rag.py`: RAG implementation with Faiss and Mixtral
   - `models.py`: Pydantic models for request/response
 - `data/`: Directory for storing documentation and vector indices
+
+
+## Chunking Strategy
+
+The current chunking strategy in the project involves splitting text into manageable chunks for processing. The chunk size is set to **500 characters** for the following reasons:
+
+1. **API Token Limits**: Many NLP APIs, including Mistral, have token limits for input text. A chunk size of 500 characters balances the need to provide enough context while staying within these limits.
+
+2. **Relevance and Context**: Smaller chunks can improve the retrieval process by allowing the system to find more relevant information. However, if chunks are too small, they may lack sufficient context for meaningful responses.
+
+3. **Performance**: A chunk size of 500 is a compromise between processing efficiency and the quality of the embeddings generated. It allows the system to process text in manageable segments without overwhelming the API or the system's memory.
+
+
+## Screenshots
+![alt text](image.png)
+
+![alt text](image-1.png)
+
+![alt text](image-2.png)
